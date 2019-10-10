@@ -3,7 +3,6 @@ import MenuItem from '../menu-item/menu-items.components'
 import './directory.styles.scss'
 
 
-
 class Directory extends React.Component {
     state = {
         sections : [
@@ -46,8 +45,12 @@ class Directory extends React.Component {
     render() {
         return (
             <div className='directory-menu'>
-                {this.state.sections.map(({title, imageUrl, id, size})=> (
-                    <MenuItem key={id} imageurl={imageUrl} title={title} size={size}/>
+                {/* {this.state.sections.map(({title, imageUrl, id, size})=> (
+                    <MenuItem key={id} imageurl={imageUrl} title={title} size={size}/> 
+                    Below line are same as above once, we have spread the list of props bec the Prop name is same as value*/}
+
+                    {this.state.sections.map(({ id, ...OtherSectionProps})=> (
+                        <MenuItem key={id} {...OtherSectionProps}/>
 
                 )) 
                 }
